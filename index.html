@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
+    
+        <title>Adams golf Calculator</title>
+        
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+        <script src="https://use.fontawesome.com/afac56adce.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Crete+Round" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=ABeeZee" rel="stylesheet">
+
+
+        
+        <style type="text/css">
+        
+            body {
+              background-color:#0E0403;
+              font-family: 'ABeeZee', sans-serif;
+              font-weight:800;
+            }
+            #pageContainer {
+               background-image: url("https://s-media-cache-ak0.pinimg.com/736x/7c/f3/fa/7cf3faf38b8f010e62748370431770f6.jpg"); 
+              background-size:cover;
+              background-position:center;
+            }
+
+            #header {
+              color:aliceblue;
+                font-weight: 700;
+                font-family: 'Crete Round', serif;
+
+            }
+
+            #inputScore {
+                color:white;
+                background-color:#99ff99;
+                margin:0em auto;
+                text-shadow:1px 1px 1px grey;
+            }
+
+            #inputPar {
+              background-color:#4499ff;
+              color:white;
+              margin:0em auto;
+                text-shadow:1px 1px 1px grey;
+            }
+
+            .inputs {
+              border-radius:10px;
+              border:1px solid rgb(200,200,200);
+              font-weight:bold;
+                height:2em;
+                width:100%;
+            }
+            
+            
+
+            #pee {
+              font-size:300%;
+              color:rgb(200,200,200);
+              text-shadow:2px 2px 9px black;
+              margin: 0 auto;
+              margin-top:2em;
+              opacity:0;
+              font-weight:800;
+            }
+
+            #btn {
+              font-weight:800;
+            }
+            
+            .fontAwesomes {
+                color:white;
+                font-size:250%;
+                opacity:0;
+                text-shadow: 2px 2px 9px black;
+            }
+            
+            #footer {
+                height:5em;
+                background-color:rgb(0,0,20);;
+            }
+            
+            #footerText {
+                color:rgb(200,200,200);
+                margin-top:1.5em;
+            }
+        </style>
+    
+    
+    </head>
+
+    <body>
+        
+        <div id="pageContainer" class="container-fluid col-lg-10 text-center">
+
+            <div class="row">
+                <div class="col-12">
+    
+                    <h1 id="header">Adam's Golf Calculator (lol)</h1>
+  
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 text-center">
+                    
+                    <input type="text" id="inputScore" class="text-center inputs" value="Shots Taken*">
+                </div>
+                <div class="col-12 col-sm-6 col-md-6 text-center">
+                    
+                    <select id="inputPar" class="inputs" placeholder="*">
+                        <option>Par For Hole*</option>
+                        <option> 1</option>
+                        <option> 2</option>
+                        <option> 3</option>
+                        <option> 4</option>
+                        <option> 5</option>
+                        <option> 6</option>
+                        <option> 7</option>
+                        <option> 8</option>
+                        <option> 9</option>
+                    </select>
+                
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="col-12 text-center">
+                <button id="btn" class="btn center-block btn-secondary">CHECK SCORE</button>
+            </div>
+            <div class="row">
+                <div class="col-12">
+
+                    <p id="pee"></p>
+                
+                </div>
+            </div>
+            
+            <div class="row">
+        
+            <div class="col-4 text-right">
+            
+                <a href="https://www.twitter.com/adamthewizard" target="_blank"><i class="fa fontAwesomes fa-twitter" aria-hidden="true" ></i></a>
+                
+            </div>
+                
+                <div class="col-4 text-center">
+                
+                    <a href="https://www.github.com/adamthewizard" target="_blank"><i class="fa fontAwesomes fa-github-alt" aria-hidden="true"></i></a>
+                    
+                </div>
+                
+                <div class="col-4 text-left">
+                    
+                    <a href="https://www.codepen.io/adamthewizard" target="_blank"><i class="fa fontAwesomes fa-codepen" aria-hidden="true"></i></a>
+
+                
+                </div>
+        
+        
+        </div>
+        </div>
+        
+        <div class="footerContainer">
+            <div id="footer" class="row">
+                            
+                <div class="col-12 text-right">
+            
+                    <p id="footerText" class="text-center">Poorly Created by AdamTheWizard</p>
+                </div>
+            
+                
+            
+            </div>
+        </div>
+        
+        
+        
+
+        
+        <script type="text/javascript">
+        
+            
+$("#pageContainer").height($(window).height() - $("#footer").height());
+            
+            $("#inputScore").click(function() {
+                
+                $(this).val(""); 
+                
+                if($(this).val() == "") {
+                    
+                    $(this).attr("placeholder", "Shots Taken*");
+                    
+                } else {
+                    
+                    $(this).attr("placeholder", "");
+                    
+                }
+                
+            })
+
+
+$("#btn").click(function() {
+  
+  var score = $("#inputScore").val();
+  
+  var par = $("#inputPar").val(); 
+  
+  if (score == 1 && par != "") {
+    
+    $("#pee").html("Hole in one!");
+    
+  } else if (score == par && score != "") {
+    
+    $("#pee").html("You got par!!");
+    
+  } else if ((score - 1) == par && par != "") {
+             
+    $("#pee").html("You got bogey!");
+             
+  } else if ((score - 2) == par && par != "") {
+             
+    $("#pee").html("Sloppy! Double-Bogey");         
+             
+  } else if ((score - 2) > par) {
+  
+             $("#pee").html("LOL That was " + (score - par) + " shots OVER par!!");
+             
+  } else if (score == (par - 1) && score != "") {
+                        
+    $("#pee").html("You got a birdie!");
+                        
+  } else if (score == (par - 2) && score != "") {
+             
+    $("#pee").html("Way to go! Double-Birdey!");
+             
+  } else if (score < (par - 2) && score != "") {
+             
+    $("#pee").html("Your on fire! That was " + (par - score) + " shots under par!" );
+             
+  }  else {
+    
+    $("#pee").html("Complete fields*");
+    
+  }
+  
+  $("#pee").animate({opacity:"1"}, 2000, function() {
+      
+      $(".fa").animate({opacity:"1"}, 1000);
+      
+  });
+  
+});
+            
+            $(document).ready(function() {
+                
+                 if ($("#pageContainer").width() < 550) {
+                
+                $(".inputs").css("font-size", "150%");
+
+                $(".inputs").css("margin", "0.5em auto");
+                
+                $("#pee").css("margin", "0.5em auto");
+
+            } else {
+                
+                $(".inputs").css("font-size", "200%");
+
+                $(".inputs").css("margin", "2em auto");
+                
+                $("#pee").css("margin", "0.5em auto");
+            }
+                
+                
+            })
+
+            $(window).resize(function() {
+                
+                
+            
+            
+            if ($("#pageContainer").width() < 550) {
+                
+                $(".inputs").css("font-size", "150%");
+
+                $(".inputs").css("margin", "0.5em auto");
+                
+                $("#pee").css("margin", "0.5em auto");
+
+            } else {
+                
+                $(".inputs").css("font-size", "200%");
+
+                $(".inputs").css("margin", "2em auto");
+                
+                $("#pee").css("margin", "0.5em auto");
+            }
+            });        
+        </script>
+    
+    
+    
+    </body>
+
+
+</html>
