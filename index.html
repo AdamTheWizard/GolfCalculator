@@ -245,8 +245,10 @@ $("#btn").click(function() {
     $("#pee").html("Complete fields*");
     
   }
+    
+    $(".footerContainer").animate({opacity:"0"}, 1000);
   
-  $("#pee").animate({opacity:"1"}, 2000, function() {
+    $("#pee").animate({opacity:"1"}, 2000, function() {
       
       $(".fa").animate({opacity:"1"}, 1000);
       
